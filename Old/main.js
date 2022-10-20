@@ -18,7 +18,7 @@ class Block{
     }
 
     calculateHash(){
-        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
+        return SHA256(this.previousHash + this.timestamp + this.nonce).toString();
     }
 
     mineblock(difficulty){
@@ -36,7 +36,7 @@ class Blockchain{
         this.chain = [this.createGenesisBlock];
         this.difficulty = 3;
         this.pendingTransactions = [];
-        this.miningReword = 100;
+        this.miningReward = 100;
     }
 
     createGenesisBlock(){
@@ -55,7 +55,7 @@ class Blockchain{
         this.chain.push(block);
 
         this.pendingTransactions = [
-            new Transaction(null, miningRewardAddress, this.miningReword)
+            new Transaction(null, miningRewardAddress, this.miningReward)
         ];
     }
 
@@ -114,5 +114,5 @@ ADPee.createTransaction(new Transaction("address2", "address1", 50));
 console.log("\n Starting the miner....");
 ADPee.minePendingTransactions("Roberta address");
 
-//console.log("\nBalance of Roberta is ", ADPee.getBalanceOfAddress("Roberta address"));
-//something wrong with the transactions!
+// console.log("\nBalance of Roberta is ", ADPee.getBalanceOfAddress("Roberta address"));
+// //something wrong with the transactions!
