@@ -34,7 +34,7 @@ class Block{
 class Blockchain{
     constructor(){
         this.chain = [this.createGenesisBlock];
-        this.difficulty = 4;
+        this.difficulty = 3;
         this.pendingTransactions = [];
         this.miningReword = 100;
     }
@@ -115,3 +115,4 @@ console.log("\n Starting the miner....");
 ADPee.minePendingTransactions("Roberta address");
 
 //console.log("\nBalance of Roberta is ", ADPee.getBalanceOfAddress("Roberta address"));
+//something wrong with the transactions!
